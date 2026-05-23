@@ -38,7 +38,10 @@ export const COMMANDS: Command[] = [
         description: 'Change color theme',
         value: '/theme',
         action: (ctx) => {
-            ctx.toast.show({ message: 'Opening theme selector...' })
+            ctx.dialog.open({
+                title: 'Theme Selector',
+                children: '',
+            })
         },
     },
     {

@@ -26,7 +26,7 @@ export function useCommandMenu() {
 
     const filteredCommands = useMemo(() => getFilteredCommands(commandQuery), [commandQuery])
 
-    const closeCommandMenu = () => {
+    const close = () => {
         setShowCommandMenu(false)
         pop('command')
     }
@@ -47,11 +47,11 @@ export function useCommandMenu() {
             setShowCommandMenu(true)
 
             push('command', () => {
-                closeCommandMenu()
+                close()
                 return true
             })
         } else {
-            closeCommandMenu()
+            close()
         }
     }
 
@@ -59,7 +59,7 @@ export function useCommandMenu() {
         const command = filteredCommands[index]
 
         if (command) {
-            closeCommandMenu()
+            close()
         }
 
         return command
@@ -70,7 +70,7 @@ export function useCommandMenu() {
 
         if (key.name === 'escape') {
             key.preventDefault()
-            closeCommandMenu()
+            close()
         } else if (key.name === 'up') {
             key.preventDefault()
 
