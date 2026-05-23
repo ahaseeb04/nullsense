@@ -2,9 +2,11 @@ import { useCallback } from 'react'
 import { useNavigate } from 'react-router'
 import { Header } from '../components/header'
 import { InputBar } from '../components/input-bar'
+import { useTheme } from '../providers/theme'
 
 export function Home() {
     const navigate = useNavigate()
+    const { colors } = useTheme()
 
     const handleSubmit = useCallback(
         (text: string) => {
