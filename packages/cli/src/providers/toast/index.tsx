@@ -78,7 +78,7 @@ function Toast({ currentToast }: ToastProps) {
     const variantColors: Record<ToastVariant, string> = {
         success: colors.success,
         error: colors.error,
-        info: colors.info,
+        info: colors.primary,
     }
 
     const borderColor = currentToast.variant
