@@ -1,6 +1,7 @@
 import { useTerminalDimensions } from '@opentui/react'
 import { DEFAULT_DURATION, type ToastOptions, type ToastVariant } from './types'
 import { createContext, useCallback, useContext, useRef, useState } from 'react'
+import { useTheme } from '../theme'
 
 type ToastProviderProps = {
     children: React.ReactNode
@@ -70,13 +71,14 @@ export function ToastProvider({ children }: ToastProviderProps) {
 
 function Toast({ currentToast }: ToastProps) {
     const { width } = useTerminalDimensions()
+    const { colors } = useTheme()
 
     if (!currentToast) return null
 
     const variantColors: Record<ToastVariant, string> = {
-        success: '#82e0aa',
-        error: '#e74c5e',
-        info: '#56d6c2',
+        success: colors.success,
+        error: colors.error,
+        info: colors.info,
     }
 
     const borderColor = currentToast.variant
@@ -95,10 +97,10 @@ function Toast({ currentToast }: ToastProps) {
             paddingRight={2}
             paddingTop={1}
             paddingBottom={1}
-            backgroundColor="#1a1a24"
+            backgroundColor={colors.surface}
         >
             <box flexDirection="column" gap={1} width="100%">
-                <text fg="#e1e1e1" wrapMode="word" width="100%">
+                <text fg={borderColor} wrapMode="word" width="100%">
                     {currentToast.message}
                 </text>
             </box>
