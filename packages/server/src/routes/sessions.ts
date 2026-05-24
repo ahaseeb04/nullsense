@@ -1,6 +1,6 @@
 import z from 'zod'
 import { Hono } from 'hono'
-import { db } from '@nullsense/db'
+import { db } from '@nullsense/db/client'
 import { zValidator } from '@hono/zod-validator'
 import { findSupportedChatModel } from '@nullsense/shared'
 import { Role, Mode, MessageStatus } from '@nullsense/db/enums'
