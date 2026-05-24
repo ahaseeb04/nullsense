@@ -5,6 +5,7 @@
         "packages/*"
     ],
     "scripts": {
-        "dev:cli": "bun run --watch packages/cli/src/index.tsx"
+        "dev:cli": "bun run --watch packages/cli/src/index.tsx",
+        "dev:server": "bun run --watch packages/server/src/index.ts"
     }
 }
