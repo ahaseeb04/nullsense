@@ -47,7 +47,9 @@ const app = new Hono()
             },
         })
 
-        if (!session) return c.json({ error: 'Session not found' }, 404)
+        if (!session) {
+            return c.json({ error: 'Session not found' }, 404)
+        }
 
         return c.json(session)
     })
